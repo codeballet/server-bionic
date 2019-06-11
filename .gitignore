@@ -1,0 +1,7 @@
+.vagrant
+*.log
+venv
+__pycache__
+*.pyc
+*.db
+*secrets*
