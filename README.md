@@ -1,9 +1,9 @@
-# Linux server with Flask, Apache, PostgreSQL
+# Linux server with Flask, Apache, and PostgreSQL
 This project is a minimal Flask app running on an Apache server. The purpose is to provide simple boilerplate code to easily set up new Flask apps.
 
 The project assumption is that the server is installed on a virtual machine, configured with Vagrant and Virtualbox, on a Windows computer.
 
-The project, called `myapp`, is created under the default shared Vagrant directory `/vagrant`.
+The project, called `myapp`, is expected to be created under the default shared Vagrant directory `/vagrant`.
 
 In order to make the code and instructions easily transferrable to non-Vagrant servers, the configuration requirements of the `Vagrant` file are minimal. All installment of necessary packages are done manually.
 
@@ -69,3 +69,19 @@ Activate the virtual environment with `. venv/bin/activate`.
 Within the activated environment, install Flask with `pip install Flask`.
 
 To exit from the virtual environment: `deactivate`.
+
+## Installing and connecting to PostgreSQL
+This part of the project is not yet finished.
+
+## Contributions
+Given that I am really new in the field of coding and using git, I am not yet quite sure how to accept contributions. If you want to contribute to the project, please do contact me. I am open for advice.
+
+## MIT License
+
+Copyright (c) 2019 Johan Stjernholm
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
