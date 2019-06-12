@@ -79,7 +79,33 @@ Within the activated environment, install Flask with `pip install Flask`.
 To exit from the virtual environment: `deactivate`.
 
 ## Installing and connecting to PostgreSQL
-This part of the project is not yet finished.
+### From the Ubuntu repository
+A snapshot of Postgres from the `apt` repository can be installed by:
+```
+sudo apt install postgresql postgresql-contrib
+```
+
+### From the PostgreSQL Global Development Group (PGDG) repository
+If you want a more recent version of PostgreSQL than above, you can use the PostgreSQL Global Development Group (PGDG) repository, as explained below.
+
+First, import repository key:
+```
+sudo apt-get install curl ca-certificates
+curl https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+```
+
+Second, create the file `/etc/apt/sources.list.d/pgdg.list`. Add the following line to the file:
+```
+deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main
+```
+
+Third, update the package lists, and start installing the desired packages:
+```
+sudo apt-get update
+sudo apt-get install postgresql postgresql-contrib
+```
+
+Since you are installing your web server and database server on the same machine, you do not need to modify your firewall settings. If you were installing your database on a separate machine, you would need to modify the firewall settings on both the web server and the database server to permit these requests.
 
 ## Accessing the app in a browser
 On the host computer, the Flask app is served by Apache on:
