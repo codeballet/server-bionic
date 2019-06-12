@@ -79,13 +79,13 @@ Within the activated environment, install Flask with `pip install Flask`.
 To exit from the virtual environment: `deactivate`.
 
 ## Installing and connecting to PostgreSQL
-### From the Ubuntu repository
+### Installing from the Ubuntu repository
 A snapshot of Postgres from the `apt` repository can be installed by:
 ```
 sudo apt install postgresql postgresql-contrib
 ```
 
-### From the PostgreSQL Global Development Group (PGDG) repository
+### Installing from the PostgreSQL Global Development Group (PGDG) repository
 If you want a more recent version of PostgreSQL than above, you can use the PostgreSQL Global Development Group (PGDG) repository, as explained below.
 
 First, import repository key:
@@ -106,6 +106,23 @@ sudo apt-get install postgresql postgresql-contrib
 ```
 
 Since you are installing your web server and database server on the same machine, you do not need to modify your firewall settings. If you were installing your database on a separate machine, you would need to modify the firewall settings on both the web server and the database server to permit these requests.
+
+### Connecting to the database
+Switch to the default postgres account with `sudo -i -u postgres`.
+Access the postgres prompt with `psql`.
+Or combine the two above commands with `sudo -u postgres psql`.
+
+Logged on as the postgres user, create a new user (or in PostgreSQL terms, create a 'role'):
+```
+createuser --interactive
+```
+
+Create a new database (still logged on as the 'postgres' user):
+```
+createdb DATABASE_NAME
+```
+
+Note that PostgreSQL assumes that the name of the linux user correponds to the name of the PostgreSQL 'role' and name of the database. For instance, the linux user 'vagrant' should have the PostgreSQL role 'vagrant', with a database named 'vagrant'.
 
 ## Accessing the app in a browser
 On the host computer, the Flask app is served by Apache on:
