@@ -3,9 +3,9 @@ This project is a minimal Flask app running on an Apache server. The purpose is 
 
 The project assumption is that the server is installed on a virtual machine, configured with Vagrant and Virtualbox, on a Windows computer.
 
-The project, called `myapp`, is expected to be created under the default shared Vagrant directory `/vagrant`.
+The project, called `myapp`, is created under the default shared Vagrant directory `/vagrant`.
 
-In order to make the code and instructions easily transferrable to non-Vagrant servers, the configuration requirements of the `Vagrant` file are minimal. All installment of necessary packages are done manually.
+In order to make the code and instructions easily transferrable to non-Vagrant servers, the configuration of the `Vagrant` file is minimal. All installment of necessary packages are done manually.
 
 ## Create and configure a Vagrant virtual Machine
 Install Git, Vagrant and Virtualbox on your computer. Instructions can be found at the below links:
@@ -13,12 +13,20 @@ Install Git, Vagrant and Virtualbox on your computer. Instructions can be found 
 * [Virtualbox](https://www.virtualbox.org/)
 * [Vagrant](https://www.vagrantup.com/)
 
-Once the above software is installed, open Git Bash as an Administrator (necessary for later installment of the virtual environment). Create a new directory, in which you run:
-`vagrant up`
+To get the Vagrant configuration file of the Virtual Machine, fork and clone the following repository:
+```
+https://github.com/codeballet/server-bionic.git
+```
 
-The command will create a vagrant box with 'ubuntu/bionic64'.
+Inside the cloned directory, there is a `vagrant` directory. Change directory to that `vagrant` directory and run the command `vagrant up`.
+Once the virtual machine configuration has finished to install, you may connect via SSH to the virtual machine with the command `vagrant ssh`.
 
-Once the virtual machine configuration has finished its work, you may connect via SSH to the virtual machine with the command `vagrant ssh`. When you see a shell prompt starting with the word `vagrant`, you have successfully logged into the virtual machine.
+When you see a shell prompt starting with the word `vagrant`, you have successfully logged into the virtual machine.
+
+The command will create a vagrant box with 'ubuntu/bionic64'. The only configuration change from a default installation is a port forwarding from guest port 80 to host port 8080. The Vagrant file has the following line uncommented:
+```
+  config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
+```
 
 ## Securing the Firewall
 Check status of the `ufw` firewall:
@@ -72,6 +80,12 @@ To exit from the virtual environment: `deactivate`.
 
 ## Installing and connecting to PostgreSQL
 This part of the project is not yet finished.
+
+## Accessing the app in a browser
+The Flask app is served by Apache on:
+```
+http://localhost:8080
+```
 
 ## Contributions
 Given that I am really new in the field of coding and using git, I am not yet quite sure how to accept contributions. If you want to contribute to the project, please do contact me. I am open for advice.
