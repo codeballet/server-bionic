@@ -124,6 +124,12 @@ createdb DATABASE_NAME
 
 Note that PostgreSQL assumes that the name of the linux user correponds to the name of the PostgreSQL 'role' and name of the database. For instance, the linux user 'vagrant' should have the PostgreSQL role 'vagrant', with a database named 'vagrant'.
 
+Other useful `psql` commands:
+`\q`  quit the psql prompt.
+`\du` get a list of roles.
+`\d`  see the tables in your database.
+`\dt` see the tables without the type `sequence`. 
+
 ## Accessing the app in a browser
 On the host computer, the Flask app is served by Apache on:
 ```
