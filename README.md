@@ -82,7 +82,7 @@ To exit from the virtual environment: `deactivate`.
 This part of the project is not yet finished.
 
 ## Accessing the app in a browser
-The Flask app is served by Apache on:
+On the host computer, the Flask app is served by Apache on:
 ```
 http://localhost:8080
 ```
