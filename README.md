@@ -62,6 +62,7 @@ Using Git Bash on Windows with Vagrant, you must run Git Bash as Administrator, 
 Install Python3 and Virtualenv with `apt-get`:
 ```
 sudo apt-get -y install python3 python3-dev
+sudo apt install build-essential
 sudo apt install virtualenv
 ```
 
@@ -74,7 +75,11 @@ virtualenv -p python3 venv
 
 Activate the virtual environment with `. venv/bin/activate`.
 	
-Within the activated environment, install Flask with `pip install Flask`.
+Within the activated environment, install Flask and SQLAlchemy:
+```
+pip install Flask
+pip install SQLAlchemy
+```
 
 To exit from the virtual environment: `deactivate`.
 
@@ -103,6 +108,12 @@ Third, update the package lists, and start installing the desired packages:
 ```
 sudo apt-get update
 sudo apt-get install postgresql postgresql-contrib
+sudo apt install libpq-dev
+```
+
+In the virtual environment, install:
+```
+pip install psycopg2
 ```
 
 Since you are installing your web server and database server on the same machine, you do not need to modify your firewall settings. If you were installing your database on a separate machine, you would need to modify the firewall settings on both the web server and the database server to permit these requests.
