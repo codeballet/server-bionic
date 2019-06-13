@@ -12,11 +12,11 @@ from sqlalchemy import create_engine
 Base = declarative_base()
 
 
-class Visitor(Base):
-    __tablename__ = 'visitors'
+class User(Base):
+    __tablename__ = 'users'
 
     id = Column(Integer, primary_key=True)
-    name = Column(String(80), nullable=False)
+    user_name = Column(String(80), nullable=False)
 
 
 engine = create_engine('postgresql://vagrant:vagrant@localhost/myapp_db')

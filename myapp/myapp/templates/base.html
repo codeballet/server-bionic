@@ -1,0 +1,11 @@
+<html>
+    <head>
+        <title>MyApp</title>
+    </head>
+
+    <body>
+        <div><a href="{{ url_for('index') }}">Home</a></div>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>
