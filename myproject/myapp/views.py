@@ -10,7 +10,8 @@ from sqlalchemy.orm import sessionmaker
 from myapp.models import User, Base
 from myapp.forms import RegisterForm
 
-engine = create_engine('postgresql://vagrant:vagrant@localhost/myapp_db')
+
+engine = create_engine(app.config['DB_URI'])
 Base.metadata.bind = engine
 Session = sessionmaker(bind=engine)
 session = Session()

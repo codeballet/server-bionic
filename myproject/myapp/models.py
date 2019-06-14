@@ -1,13 +1,8 @@
-import sys
-from sqlalchemy import (
-    Column,
-    ForeignKey,
-    Integer,
-    String
-)
+from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
+from myapp import app
 
 Base = declarative_base()
 
@@ -19,6 +14,6 @@ class User(Base):
     user_name = Column(String(80), nullable=False)
 
 
-engine = create_engine('postgresql://vagrant:vagrant@localhost/myapp_db')
+engine = create_engine(app.config['DB_URI'])
 
 Base.metadata.create_all(engine)
