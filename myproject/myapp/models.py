@@ -1,4 +1,11 @@
-from sqlalchemy import Column, ForeignKey, Integer, String
+from sqlalchemy import (
+    Column,
+    ForeignKey,
+    Integer,
+    String,
+    DateTime,
+    func
+)
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
@@ -12,6 +19,7 @@ class User(Base):
 
     id = Column(Integer, primary_key=True)
     user_name = Column(String(80), nullable=False)
+    date = Column(DateTime, default=func.now())
 
 
 engine = create_engine(app.config['DB_URI'])
