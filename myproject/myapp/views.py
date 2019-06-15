@@ -5,7 +5,7 @@ from flask import (
     redirect
 )
 from myapp import app
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, desc
 from sqlalchemy.orm import sessionmaker
 from myapp.models import User, Base
 from myapp.forms import RegisterForm
@@ -19,7 +19,7 @@ session = Session()
 @app.route('/')
 @app.route('/index')
 def index():
-    visitors = session.query(User).all()
+    visitors = session.query(User).order_by(desc(User.date)).limit(10)
     return render_template('index.html', visitors = visitors)
 
 @app.route('/register', methods=['GET', 'POST'])

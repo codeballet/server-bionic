@@ -3,7 +3,7 @@
 {% block content %}
 	<h1>Hello there!</h1>
 	<a href="{{ url_for('register') }}">Register your visit</a>
-	<p>Here are all visitors so far:</p>
+	<p>Here are the latest visitors:</p>
 	{% for visitor in visitors %}
 	<ul>
 		<li>{{ visitor.user_name }}</li>
